@@ -1,3 +1,5 @@
+Link báo cáo: https://github.com/ThuanLee/Kiem_thu.git
+
 ## Bài toán: Chuyển đổi tiền từ đơn vị đô `$` sang Việt Nam đồng `VND` theo tỉ giá hiện tại và xếp loại
 ### Luồng hoạt động của chương trình
 
