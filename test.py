@@ -1,34 +1,29 @@
-import requests
-
-base = 'USD'
-
-to = 'VND'
-
-url = f'https://api.exchangerate.host/lastest?base={base}&symbols={to}'
-
-response = requests.get(url)
-
-data = response.json()
-
-rate = data.get('rates').get(to)
-
-print('Tỉ giá chuyển đổi $ -> VND:', rate)
-dollar = input('Số tiền bạn đang có ($): ')
-
 try:
-    dollar = float(dollar)
-    if dollar < 0:
-        raise Exception()
-    vnd = dollar * rate
-    print('Số tiền của bạn (VND): ', vnd)
-    print('=>', end=' ')
-    if vnd >= 10**9:
-        print('Bạn là tỉ phú VND')
-    elif vnd >= 10**6:
-        print('Bạn là triệu phú VND')
+    unit = input('Hãy chọn đơn vị tiền của bạn:\n1.VND\n2.Dollar\nChọn 1 hoặc 2: ')
+
+    if unit == '1':
+        unit = 'VND'
+    elif unit == '2':
+        unit = 'Dollar'
     else:
-        print('Bạn rất nghèo')
-except Exception:
-    print('Input chỉ có thể là số và không âm')
+        raise Exception('Bạn chỉ có thể chọn 1 hoặc 2')
 
+    curr = input('Số tiền bạn đang có: ')
 
+    try:
+        curr = float(curr)
+        if curr < 0:
+            raise Exception()
+    except:
+        raise Exception('Số tiền chỉ có thể là số và không âm')
+
+    print('=>', end=' ')
+    if curr >= 10**9:
+        print(f'Bạn là tỉ phú {unit}')
+    elif curr >= 10**6:
+        print(f'Bạn là triệu phú {unit}')
+    else:
+        print('Bạn chưa được xếp hạng')
+
+except Exception as e:
+    print(e)
