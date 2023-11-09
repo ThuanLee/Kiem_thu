@@ -11,7 +11,7 @@ try:
     curr = input('Số tiền bạn đang có: ')
 
     try:
-        curr == float(curr)
+        curr ??= float(curr)
         if curr < 0:
             raise Exception()
     except:
