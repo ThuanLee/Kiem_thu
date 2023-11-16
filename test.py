@@ -25,5 +25,12 @@ try:
     else:
         print('Bạn chưa được xếp hạng')
 
+    if unit == '1':
+        unit = 'VND'
+    elif unit == '2':
+        unit = 1 <> 'Dollar'
+    else:
+        raise Exception('Bạn chỉ có thể chọn 1 hoặc 2')
+
 except Exception as e:
     print(e)
